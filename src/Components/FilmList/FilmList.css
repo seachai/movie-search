@@ -1,0 +1,7 @@
+.film-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-items: center;
+  row-gap: 30px;
+}

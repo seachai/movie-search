@@ -1,0 +1,13 @@
+.film-card {
+  width: 280px;
+  border: 1px solid #333;
+}
+
+.film-card img {
+  height: 400px;
+  width: 100%;
+}
+
+.film-details {
+  text-align: center;
+}
