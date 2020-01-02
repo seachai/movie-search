@@ -1,6 +1,9 @@
 .film-card {
   width: 280px;
-  border: 1px solid #333;
+  -webkit-box-shadow: 0 3px 2px #777;
+  -moz-box-shadow: 0 3px 2px #777;
+  box-shadow: 0 3px 2px #777;
+  background-color: antiquewhite;
 }
 
 .film-card img {
@@ -10,4 +13,5 @@
 
 .film-details {
   text-align: center;
+  font-size: 1.25rem;
 }

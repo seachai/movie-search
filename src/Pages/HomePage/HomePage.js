@@ -12,6 +12,7 @@ const Loading = () => {
 const HomePage = () => {
   const [movies, setMovies] = useState();
   const [searchQuery, setSearchQuery] = useState("frozen");
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -23,17 +24,16 @@ const HomePage = () => {
       setMovies(results);
     }
     fetchData();
-  }, []);
+  }, [searchQuery]);
 
   const handleChange = e => {
-    console.log(e.target.value);
+    setValue(e.target.value);
   };
 
-  // const onSearch = (e) => {
-  //   e.preventDefault();
-
-  //   console.log(e.target.value)
-  // }
+  const handleSubmit = e => {
+    e.preventDefault();
+    setSearchQuery(value);
+  };
 
   if (movies === undefined) {
     return <Loading />;
@@ -42,7 +42,11 @@ const HomePage = () => {
       <>
         <Hero />
         <div className="container">
-          <Search onChange={handleChange} />
+          <Search
+            onChange={handleChange}
+            value={value}
+            onSubmit={handleSubmit}
+          />
           <FilmList movies={movies} />
         </div>
       </>

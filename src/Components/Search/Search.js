@@ -1,19 +1,19 @@
 import React from "react";
 import "./Search.css";
 
-const Search = ({ onChange }) => {
+const Search = ({ onChange, value, onSubmit }) => {
   return (
-    <div className="search-height">
-      <div className="search-container">
+    <div className="search__container">
+      <form onSubmit={onSubmit}>
+        <p className="search__title">Go ahead, find that perfect movie.</p>
         <input
-          id="search"
-          type="search"
-          placeholder="Search for movie"
+          className="search__input"
+          type="text"
+          placeholder="Search"
+          value={value}
           onChange={onChange}
-          value=""
-        ></input>
-        <input type="submit"></input>
-      </div>
+        />
+      </form>
     </div>
   );
 };
