@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import FilmList from "../../Components/FilmList/FilmList";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Hero from "../../Components/Hero/Hero";
 import Search from "../../Components/Search/Search";
 
 import "./HomePage.css";
 
+const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 const Loading = () => {
   return <div>Loading...</div>;
 };
@@ -32,7 +32,8 @@ const HomePage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchQuery(value);
+    setSearchQuery(value.toLocaleLowerCase());
+    setValue("");
   };
 
   if (movies === undefined) {
@@ -47,7 +48,9 @@ const HomePage = () => {
             value={value}
             onSubmit={handleSubmit}
           />
-          <FilmList movies={movies} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <FilmList movies={movies} />
+          </Suspense>
         </div>
       </>
     );
