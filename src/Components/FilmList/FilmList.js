@@ -1,9 +1,12 @@
 import React from "react";
 import uuid from "uuid";
-import "./FilmList.css";
 import FilmCard from "../FilmCard/FilmCard";
+import Loading from "../Loading/Loading";
+import "./FilmList.css";
 
 const FilmList = ({ movies }) => {
+  console.log(movies);
+
   return (
     <div className="film-container">
       {movies !== undefined ? (
@@ -16,7 +19,7 @@ const FilmList = ({ movies }) => {
           />
         ))
       ) : (
-        <div>Loading movies...</div>
+        <Loading />
       )}
     </div>
   );
