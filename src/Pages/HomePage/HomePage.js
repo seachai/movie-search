@@ -36,6 +36,8 @@ const HomePage = () => {
     setValue("");
   };
 
+  console.log(movies);
+
   if (movies === undefined) {
     return <Loading />;
   } else {
