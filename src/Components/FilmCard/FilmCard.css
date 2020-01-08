@@ -1,19 +1,45 @@
 .film-card {
   width: 280px;
+  height: 100%;
+  position: relative;
   -webkit-box-shadow: 0 3px 2px #777;
   -moz-box-shadow: 0 3px 2px #777;
   box-shadow: 0 3px 2px #777;
-  background-color: antiquewhite;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .film-card img {
-  height: 400px;
+  height: 100%;
   width: 100%;
+  border-radius: 5px;
 }
 
 .film-details {
   text-align: center;
   font-size: 1.25rem;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-in;
+  transform: translate(0, 120%);
+  top: 0;
+  bottom: 0;
+}
+
+.ticket-button {
+  border: 1px solid #d90368;
+  padding: 20px 30px;
+  outline: none;
+  color: #d90368;
+  background-color: #291720;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.film-card:hover .film-details {
+  transform: translate(0, 85%);
 }
 
 .film-modal {

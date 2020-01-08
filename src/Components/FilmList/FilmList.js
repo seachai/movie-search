@@ -5,12 +5,13 @@ import Loading from "../Loading/Loading";
 import "./FilmList.css";
 
 const FilmList = ({ movies }) => {
-  console.log(movies);
+  let movieData = movies;
+  console.log(movieData);
 
   return (
     <div className="film-container">
-      {movies !== undefined ? (
-        movies.Search.map(data => (
+      {movieData !== undefined ? (
+        movieData.Search.map((data) => (
           <FilmCard
             title={data.Title}
             year={data.Year}

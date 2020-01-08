@@ -13,32 +13,31 @@ const HomePage = () => {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
-      const results = await fetch(
-        `https://www.omdbapi.com/?&apikey=9fe4ab07&s=${searchQuery}`
-        // `https://www.omdbapi.com/?apikey=9fe4ab07&t=${searchQuery}&plot=full`
-      )
-        .then(res => res.json())
-        .then(res => res);
-      setMovies(results);
-    }
     fetchData();
   }, [searchQuery]);
 
-  const handleChange = e => {
+  const fetchData = async () => {
+    const response = await fetch(
+      `https://www.omdbapi.com/?&apikey=9fe4ab07&s=${searchQuery}`
+    );
+
+    const results = await response.json();
+
+    setMovies(results);
+  };
+
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let filteredValue = value.replace(/[^\w\s]/gi, "");
+    let filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
     setSearchQuery(filteredValue);
     setValue("");
   };
 
-  console.log(movies);
-
-  if (movies === undefined) {
+  if (typeof movies === undefined) {
     return <Loading />;
   } else {
     return (

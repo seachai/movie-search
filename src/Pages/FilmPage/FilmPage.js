@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./FilmPage.css";
 
-const FilmPage = filmTitle => {
+const FilmPage = (filmTitle) => {
   const [movie, setMovie] = useState("");
   let movieTitle = filmTitle.match.params.film;
 
@@ -12,8 +12,8 @@ const FilmPage = filmTitle => {
         // `https://www.omdbapi.com/?&apikey=9fe4ab07&s=${}`
         `https://www.omdbapi.com/?apikey=9fe4ab07&t=${movieTitle}&plot=full`
       )
-        .then(res => res.json())
-        .then(res => res);
+        .then((res) => res.json())
+        .then((res) => res);
       setMovie(results);
     }
     fetchData();
