@@ -6,7 +6,6 @@ import "./FilmList.css";
 
 const FilmList = ({ movies }) => {
   let movieData = movies;
-  console.log(movieData);
 
   return (
     <div className="film-container">
