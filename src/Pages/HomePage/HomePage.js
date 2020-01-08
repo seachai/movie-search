@@ -26,11 +26,11 @@ const HomePage = () => {
     setMovies(results);
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     let filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
     setSearchQuery(filteredValue);
@@ -43,7 +43,7 @@ const HomePage = () => {
     return (
       <>
         <Hero />
-        <div className="container">
+        <section className="homepage">
           <Search
             onChange={handleChange}
             value={value}
@@ -52,7 +52,7 @@ const HomePage = () => {
           <Suspense fallback={<Loading />}>
             <FilmList movies={movies} />
           </Suspense>
-        </div>
+        </section>
       </>
     );
   }

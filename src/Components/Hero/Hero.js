@@ -1,8 +1,8 @@
 import React from "react";
 import "./Hero.css";
 
-const Hero = () => {
-  return <section className="hero-image"></section>;
+const Hero = ({ image }) => {
+  return <section className={`hero-image ${image}`}></section>;
 };
 
 export default Hero;

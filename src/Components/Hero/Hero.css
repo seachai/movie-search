@@ -5,3 +5,10 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.landing {
+  background-image: url("https://source.unsplash.com/1600x900/?movies");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  transform: scale(1.1);
+}

@@ -3,16 +3,16 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import HomePage from "./Pages/HomePage/HomePage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 
 function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/:film" component={FilmPage} />
-        <Route component={HomePage} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/main" component={HomePage} />
+      <Route path="/:film" component={FilmPage} />
+      <Route component={LandingPage} />
+    </Switch>
   );
 }
 
