@@ -7,7 +7,7 @@ const FilmCard = ({ title, poster }) => {
     <div className="film-card">
       <img src={poster} alt={title} />
       <div className="film-details">
-        <Link to={title} className="ticket-button">
+        <Link to={`filmdetails/${title}`} className="ticket-button">
           Tickets Available
         </Link>
       </div>

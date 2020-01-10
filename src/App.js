@@ -4,13 +4,17 @@ import "./App.css";
 import HomePage from "./Pages/HomePage/HomePage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Login/Login";
 
 function App() {
   return (
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/main" component={HomePage} />
-      <Route path="/:film" component={FilmPage} />
+      <Route path="/filmdetails/:film" component={FilmPage} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route component={LandingPage} />
     </Switch>
   );

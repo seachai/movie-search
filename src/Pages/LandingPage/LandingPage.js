@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Hero from "../../Components/Hero/Hero";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./LandingPage.css";
 
@@ -9,7 +8,6 @@ import LandingImage from "../../Images/film.svg";
 const LandingPage = () => {
   return (
     <section className="landing-page">
-      {/* <Hero image={"landing"} /> */}
       <NavBar />
       <div className="landing-details">
         <div className="landing-info animated fadeInLeft">
