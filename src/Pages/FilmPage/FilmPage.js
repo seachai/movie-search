@@ -7,27 +7,34 @@ const FilmPage = (filmTitle) => {
   let movieTitle = filmTitle.match.params.film;
 
   useEffect(() => {
-    async function fetchData() {
-      const results = await fetch(
-        // `https://www.omdbapi.com/?&apikey=9fe4ab07&s=${}`
-        `https://www.omdbapi.com/?apikey=9fe4ab07&t=${movieTitle}&plot=full`
-      )
-        .then((res) => res.json())
-        .then((res) => res);
-      setMovie(results);
+    try {
+      fetchMovie();
+    } catch (error) {
+      console.log(error.message);
     }
-    fetchData();
   }, []);
 
-  console.log(movie);
+  const fetchMovie = () => {
+    const apiURL = `https://www.omdbapi.com/?apikey=9fe4ab07&t=${movieTitle}&plot=full`;
+    const movieSearchResults = async () => {
+      const data = await fetch(apiURL);
+      const dataIntoJson = await data.json();
+      let results = await dataIntoJson;
+      setMovie(results);
+    };
+    movieSearchResults();
+  };
 
   return (
     <div className="film--page">
-      <img src={movie.Poster} alt={movie.imdbID} />
-      <h1>
-        {movie.Title} ( {movie.Year} )
-      </h1>
-      <div className="film--page_details">
+      <div className="film--page_title">
+        <img src={movie.Poster} alt={movie.imdbID} />
+        <h1>
+          {movie.Title} ( {movie.Year} )
+        </h1>
+      </div>
+
+      <div className="film--page_subtitle">
         <p>{movie.Rated}</p>
         <p>{movie.Runtime}</p>
         <p>{movie.Genre}</p>
@@ -35,10 +42,11 @@ const FilmPage = (filmTitle) => {
           {movie.Released} ( {movie.Country} )
         </p>
       </div>
-      {/* <h4>Released date: {movie.Released}</h4> */}
-      <p>Director: {movie.Director}</p>
-      <p>Plot: {movie.Plot}</p>
-      <Link to="">Go back</Link>
+      <div className="film--page_body">
+        <p>Director: {movie.Director}</p>
+        <p>Plot: {movie.Plot}</p>
+        <Link to="/">Go back</Link>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import firebase from "../../Firebase/Firebase.utils";
 import "./Login.css";
-import { registerVersion } from "firebase";
 
 const Login = () => {
   const [user, setUser] = useState("");

@@ -7,9 +7,11 @@ import "./FilmList.css";
 const FilmList = ({ movies }) => {
   let movieData = movies;
 
+  console.log(movieData);
+
   return (
     <div className="film-container">
-      {movieData !== undefined ? (
+      {movieData ? (
         movieData.Search.map((data) => (
           <FilmCard
             title={data.Title}

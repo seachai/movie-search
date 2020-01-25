@@ -9,12 +9,15 @@ const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
 const HomePage = () => {
   const [movies, setMovies] = useState();
-  const [searchQuery, setSearchQuery] = useState("frozen");
+  const [searchQuery, setSearchQuery] = useState("Frozen");
   const [value, setValue] = useState("");
 
   useEffect(() => {
     fetchData();
-  }, [searchQuery]);
+  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, [searchQuery]);
 
   const fetchData = async () => {
     const response = await fetch(
@@ -26,36 +29,32 @@ const HomePage = () => {
     setMovies(results);
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
+    let filteredValue = value.replace(/[^a-zA-Z0-9]/gi, "");
     setSearchQuery(filteredValue);
     setValue("");
   };
 
-  if (typeof movies === undefined) {
-    return <Loading />;
-  } else {
-    return (
-      <>
-        <Hero />
-        <section className="homepage">
-          <Search
-            onChange={handleChange}
-            value={value}
-            onSubmit={handleSubmit}
-          />
-          <Suspense fallback={<Loading />}>
-            <FilmList movies={movies} />
-          </Suspense>
-        </section>
-      </>
-    );
-  }
+  // if (typeof movies === undefined) {
+  //   return <Loading />;
+  // } else {
+  return (
+    <>
+      <Hero />
+      <section className="homepage">
+        <Search onChange={handleChange} value={value} onSubmit={handleSubmit} />
+        <Suspense fallback={<Loading />}>
+          <FilmList movies={movies} />
+        </Suspense>
+      </section>
+    </>
+  );
+  // }
 };
 
 export default HomePage;
