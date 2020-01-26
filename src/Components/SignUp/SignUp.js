@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import firebase from "../../Firebase/Firebase.utils";
-import "./Login.css";
 
-const Login = () => {
+import "./SignUp.css";
+
+const SignUp = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   return (
-    <section className="login">
-      <div className="login--container">
-        <div className="login--modal">
+    <section className="signup">
+      <div className="signup--container">
+        <div className="signup--modal">
           <form>
             <input
               type="name"
@@ -32,7 +33,14 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
-            <button>Sign In</button>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></input>
+            <button>Sign Up</button>
           </form>
         </div>
       </div>
@@ -40,4 +48,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

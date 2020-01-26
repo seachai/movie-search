@@ -1,4 +1,4 @@
-.login {
+.signup {
   background-color: #d90368;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23d90368' cx='50' cy='0' r='50'/%3E%3Cg fill='%23d50168' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d10069' cx='50' cy='100' r='50'/%3E%3Cg fill='%23cc0069' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c80069' cx='50' cy='200' r='50'/%3E%3Cg fill='%23c40069' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c00069' cx='50' cy='300' r='50'/%3E%3Cg fill='%23bb0069' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b70069' cx='50' cy='400' r='50'/%3E%3Cg fill='%23b30069' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ae0069' cx='50' cy='500' r='50'/%3E%3Cg fill='%23aa0068' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a50068' cx='50' cy='600' r='50'/%3E%3Cg fill='%23a10068' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%239d0067' cx='50' cy='700' r='50'/%3E%3Cg fill='%23980067' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23940066' cx='50' cy='800' r='50'/%3E%3Cg fill='%238f0065' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%238b0065' cx='50' cy='900' r='50'/%3E%3Cg fill='%23860164' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23820263' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
@@ -10,7 +10,7 @@
   transform: scale(1.1); */
 }
 
-.login--container {
+.signup--container {
   height: 600px;
   width: 800px;
   margin: 0 auto;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.login--modal {
+.signup--modal {
   /* filter: blur(0px);
   -webkit-filter: blur(0px); */
   display: flex;
@@ -37,7 +37,7 @@
   background-size: contain; */
 }
 
-.login--modal form input {
+.signup--modal form input {
   display: block;
   margin: 1rem 0;
   height: 25px;
