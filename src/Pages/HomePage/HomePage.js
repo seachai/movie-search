@@ -40,9 +40,6 @@ const HomePage = () => {
     setValue("");
   };
 
-  // if (typeof movies === undefined) {
-  //   return <Loading />;
-  // } else {
   return (
     <>
       <Hero />
@@ -54,7 +51,6 @@ const HomePage = () => {
       </section>
     </>
   );
-  // }
 };
 
 export default HomePage;

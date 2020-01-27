@@ -5,7 +5,8 @@ import HomePage from "./Pages/HomePage/HomePage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Login from "./Components/Login/Login";
-import SignUp from "./Components/SignUp/SignUp";
+// import SignUp from "./Components/SignUp/SignUp";
+import SignUpClass from "./Components/SignUp/SignUpClass";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Route path="/main" component={HomePage} />
       <Route path="/filmdetails/:film" component={FilmPage} />
       <Route path="/login" component={Login} />
-      <Route path="/register" component={SignUp} />
+      <Route path="/register" component={SignUpClass} />
       <Route component={LandingPage} />
     </Switch>
   );
