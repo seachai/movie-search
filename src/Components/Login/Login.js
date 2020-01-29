@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import firebase from "../../Firebase/Firebase.utils";
+import { auth } from "../../Firebase/Firebase.utils";
 import "./Login.css";
 
 const Login = () => {
-  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <section className="login">
       <div className="login--container">
         <div className="login--modal">
-          <form>
-            <input
-              type="name"
-              name="username"
-              placeholder="Username"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-            ></input>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"

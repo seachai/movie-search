@@ -1,18 +1,38 @@
 import React, { useState } from "react";
-import { auth } from "../../Firebase/Firebase.utils";
+import { auth, createUserProfileDocument } from "../../Firebase/Firebase.utils";
 
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [user, setUser] = useState("admin");
+  const [displayName, setDisplayName] = useState("admin");
   const [email, setEmail] = useState("admin@admin.com");
   const [password, setPassword] = useState("admin123");
   const [confirmPassword, setConfirmPassword] = useState("admin123");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if ((user, email, password, confirmPassword)) {
-      console.log(JSON.stringify({ user, email, password, confirmPassword }));
+
+    // const { displayName, email, password, confirmPassword } = this.state;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      await createUserProfileDocument(user, { displayName });
+
+      setDisplayName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
@@ -28,8 +48,8 @@ const SignUp = () => {
               type="name"
               name="username"
               placeholder="Username"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
             ></input>
             <input
               type="email"

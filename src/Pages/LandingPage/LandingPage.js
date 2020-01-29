@@ -16,7 +16,7 @@ const LandingPage = () => {
             <br />
             Chai
             <span role="img" aria-label="tea">
-              🍵
+              🍿
             </span>
           </h1>
           <Link to="/main" className="button">
