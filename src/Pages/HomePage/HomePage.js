@@ -9,12 +9,12 @@ const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
 const HomePage = () => {
   const [movies, setMovies] = useState();
-  const [searchQuery, setSearchQuery] = useState("Frozen");
+  const [searchQuery, setSearchQuery] = useState("Star Wars");
   const [value, setValue] = useState("");
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchQuery]);
   // useEffect(() => {
   //   fetchData();
   // }, [searchQuery]);
@@ -25,7 +25,6 @@ const HomePage = () => {
     );
 
     const results = await response.json();
-
     setMovies(results);
   };
 
@@ -35,20 +34,24 @@ const HomePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let filteredValue = value.replace(/[^a-zA-Z0-9]/gi, "");
-    setSearchQuery(filteredValue);
+    // let filteredValue = value.replace(/[^a-zA-Z0-9]/gi, "");
+    setSearchQuery(value);
     setValue("");
   };
 
   return (
     <>
-      <Hero />
-      <section className="homepage">
-        <Search onChange={handleChange} value={value} onSubmit={handleSubmit} />
-        <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <Hero />
+        <section className="homepage">
+          <Search
+            onChange={handleChange}
+            value={value}
+            onSubmit={handleSubmit}
+          />
           <FilmList movies={movies} />
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
     </>
   );
 };

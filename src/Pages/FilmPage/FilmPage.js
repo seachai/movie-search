@@ -45,8 +45,10 @@ const FilmPage = (filmTitle) => {
       <div className="film--page_body">
         <p>Director: {movie.Director}</p>
         <p>Plot: {movie.Plot}</p>
-        <Link to="/">Go back</Link>
       </div>
+      <Link to="/main" className="film--page_button">
+        Go back
+      </Link>
     </div>
   );
 };
