@@ -26,15 +26,17 @@ const SignUp = ({ props }) => {
     }
 
     try {
+      // If forms correct, then email and password will be saved into firebase
       const { userAuth } = await auth.createUserWithEmailAndPassword(
         email,
         password
       );
 
-      await createUserProfileDocument(userAuth, { displayName });
+      await createUserProfileDocument(userAuth, { displayName, email });
+
       auth.onAuthStateChanged((user) => {
         if (user) {
-          console.log({ displayName }, props); //Set this into the state, then redirect to main
+          console.log({ displayName, email }); //Set this into the state, then redirect to main
         } else {
           console.log("No one is signed in");
         }
