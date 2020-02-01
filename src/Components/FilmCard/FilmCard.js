@@ -8,7 +8,7 @@ const FilmCard = ({ title, poster }) => {
       <img src={poster} alt={title} />
       <div className="film-details">
         <Link to={`filmdetails/${title}`} className="ticket-button">
-          Tickets Available
+          View More
         </Link>
       </div>
     </div>

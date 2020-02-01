@@ -3,14 +3,15 @@ import { auth } from "../../Firebase/Firebase.utils";
 import "./Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test123@test.com");
+  const [password, setPassword] = useState("test123");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      console.log(auth);
       setEmail("");
       setPassword("");
     } catch (error) {

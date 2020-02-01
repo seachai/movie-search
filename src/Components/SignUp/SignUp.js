@@ -1,18 +1,24 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router";
 import { auth, createUserProfileDocument } from "../../Firebase/Firebase.utils";
 
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = ({ props }) => {
   const [displayName, setDisplayName] = useState("admin");
   const [email, setEmail] = useState("admin@admin.com");
   const [password, setPassword] = useState("admin123");
   const [confirmPassword, setConfirmPassword] = useState("admin123");
 
+  const resetForm = () => {
+    setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
       alert("Passwords do not match");
@@ -20,19 +26,22 @@ const SignUp = () => {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
+      const { userAuth } = await auth.createUserWithEmailAndPassword(
         email,
         password
       );
 
-      await createUserProfileDocument(user, { displayName });
-
-      setDisplayName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      await createUserProfileDocument(userAuth, { displayName });
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          console.log({ displayName }, props); //Set this into the state, then redirect to main
+        } else {
+          console.log("No one is signed in");
+        }
+      });
+      resetForm();
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
   return (
@@ -80,4 +89,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default withRouter(SignUp);
