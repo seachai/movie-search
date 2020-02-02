@@ -3,68 +3,64 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./FilmPage.css";
 
-const FilmPage = (filmTitle) => {
+const FilmPage = (id) => {
   const [movie, setMovie] = useState("");
-  let movieTitle = filmTitle.match.params.film;
+  let movieId = id.match.params.film;
 
+  let movieGenres = { ...movie };
+  console.log(movieGenres);
   useEffect(() => {
     try {
-      // fetchMovie();
       fetchTMDB();
     } catch (error) {
       console.log(error.message);
     }
   }, []);
 
-  // const fetchMovie = () => {
-  //   const apiURL = `https://www.omdbapi.com/?apikey=9fe4ab07&t=${movieTitle}&plot=full`;
-  //   const movieSearchResults = async () => {
-  //     const data = await fetch(apiURL);
-  //     const dataIntoJson = await data.json();
-  //     let results = await dataIntoJson;
-  //     setMovie(results);
-  //   };
-  //   movieSearchResults();
-  // };
-
   const fetchTMDB = async () => {
-    const apiUrl = `https://api.themoviedb.org/3/search/`;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
     const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
     const response = await axios({
       url: apiUrl,
       method: "GET",
       responseType: "json",
       params: {
-        api_key: apiKey,
-        language: "en-US",
-        query: movieTitle
+        api_key: apiKey
       }
     });
-    setMovie(response);
-    console.log(movie);
+    setMovie(response.data);
   };
 
   return (
     <div className="film--page">
-      {/* <div className="film--page_title">
-        <img src={movie.Poster} alt={movie.imdbID} />
+      <div className="film--page_title">
+        <img
+          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          alt={movie.orignal_title}
+        />
         <h1>
-          {movie.Title} ( {movie.Year} )
+          {movie.original_title} ( {movie.release_date} )
         </h1>
       </div>
 
       <div className="film--page_subtitle">
-        <p>{movie.Rated}</p>
-        <p>{movie.Runtime}</p>
-        <p>{movie.Genre}</p>
         <p>
-          {movie.Released} ( {movie.Country} )
+          {movie.vote_average} / 10 from {movie.vote_count} votes
+        </p>
+        <p>Runtime: {movie.runtime}</p>
+        {/* {movie.map((genre) => (
+          <p>{genre.name}</p>
+        ))} */}
+
+        <p>Release Date: {movie.release_date} ()</p>
+        <p>
+          Homepage: <a href={movie.homepage}>{movie.orignal_title}</a>
         </p>
       </div>
       <div className="film--page_body">
         <p>Director: {movie.Director}</p>
-        <p>Plot: {movie.Plot}</p>
-      </div> */}
+        <p>Plot: {movie.overview}</p>
+      </div>
       <Link to="/main" className="film--page_button">
         Go back
       </Link>

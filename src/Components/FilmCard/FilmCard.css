@@ -1,37 +1,48 @@
 .film-card {
-  width: 280px;
-  height: 100%;
-  position: relative;
+  width: 20rem;
   border-bottom: 0 none;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
-  border-radius: 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all 0.2s;
+  position: relative;
+}
+
+.film-rating {
+  height: 5rem;
+  width: 5rem;
+  background-color: orange;
+  position: absolute;
+  transform: translate(150%, -25px);
+  border-radius: 50%;
+  color: white;
+}
+
+.film-rating span {
+  position: absolute;
+  top: 0;
+  transform: translate(50%, 50%);
+  font-size: 1.7rem;
 }
 
 .film-card img {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .film-details {
   text-align: center;
-  font-size: 1.25rem;
-  position: absolute;
-
+  font-size: 1rem;
+  color: #333;
   width: 100%;
-  height: 100%;
-  transition: 0.3s ease-in;
-  transform: translate(0, 120%);
-  top: 0;
-  bottom: 0;
+  height: 10rem;
 }
 
 .ticket-button {
   border: 1px solid #d90368;
   box-shadow: 0 1px 5px #d90368;
-  padding: 20px 30px;
+  padding: 2rem 3rem;
   outline: none;
   color: #d90368;
   background-color: rgba(255, 255, 255, 0.7);
@@ -41,19 +52,4 @@
 
 .ticket-button:hover {
   box-shadow: 0 1px 5px #d90368;
-}
-
-.film-card:hover {
-  transform: translateY(-3px);
-}
-
-.film-card:hover .film-details {
-  transform: translate(0, 85%);
-}
-
-.film-modal {
-  display: block;
-  height: 500px;
-  width: 500px;
-  background-color: red;
 }

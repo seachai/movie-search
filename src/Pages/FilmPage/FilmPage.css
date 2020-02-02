@@ -1,21 +1,15 @@
 .film--page {
-  height: 100%;
-  width: 100%;
   color: #fff;
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
   text-align: center;
+  font-size: 1.6rem;
 }
 
 .film--page_title img {
   box-shadow: 0 3px 2px #777;
+  height: 500px;
   border-radius: 5px;
-}
-
-.film--page_subtitle p {
-  margin-right: 10px;
-  padding-right: 10px;
-  border-right: 1px solid #333;
 }
 
 .film--page_body {
@@ -23,18 +17,18 @@
 }
 
 .film--page_button {
-  padding: 12px 40px;
+  padding: 1.2rem 4rem;
   border: 1px solid #d90368;
   background-color: #d90368;
   border-radius: 10px;
-  width: 100px;
+  width: 10rem;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 0.2rem;
   transition: all 0.2s;
 }
 

@@ -10,23 +10,12 @@ const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
 const HomePage = () => {
   const [movies, setMovies] = useState();
-  const [searchQuery, setSearchQuery] = useState("Pokemon");
-  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("Star Wars");
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    // fetchData();
     fetchTMDB();
-  }, []);
-
-  // const fetchData = async () => {
-  //   const response = await fetch(
-  //     `https://www.omdbapi.com/?&apikey=9fe4ab07&s=${searchQuery}`
-  //   );
-
-  //   const results = await response.json();
-  //   setMovies(results);
-  // };
+  }, [searchQuery]);
 
   const fetchTMDB = async () => {
     const apiUrl = `https://api.themoviedb.org/3/search/multi`;
@@ -50,14 +39,13 @@ const HomePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // let filteredValue = value.replace(/[^a-zA-Z0-9]/gi, "");
     setSearchQuery(value);
     setValue("");
   };
 
   return (
     <Suspense fallback={<Loading />}>
-      <Hero />
+      {/* <Hero /> */}
       <section className="homepage">
         <Search onChange={handleChange} value={value} onSubmit={handleSubmit} />
         <FilmList movies={movies} />
