@@ -20,7 +20,7 @@ const LandingPage = () => {
             </span>
           </h1>
           <Link to="/main" className="button">
-            About
+            Check Out
           </Link>
         </div>
         <div className="landing-image-container animated fadeInRight">

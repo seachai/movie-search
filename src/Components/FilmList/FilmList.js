@@ -12,13 +12,8 @@ const FilmList = ({ movies }) => {
   return (
     <div className="film-container">
       {movieData ? (
-        movieData.Search.map((data) => (
-          <FilmCard
-            title={data.Title}
-            year={data.Year}
-            poster={data.Poster}
-            key={uuid()}
-          />
+        movieData.map((data) => (
+          <FilmCard title={data.title} poster={data.poster_path} key={uuid()} />
         ))
       ) : (
         <Loading />
