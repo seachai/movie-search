@@ -18,6 +18,7 @@ const FilmPage = (id) => {
   }, []);
 
   const fetchTMDB = async () => {
+    // https://api.themoviedb.org/3/trending/all/day
     const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
     const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
     const response = await axios({
@@ -61,7 +62,7 @@ const FilmPage = (id) => {
         <p>Director: {movie.Director}</p>
         <p>Plot: {movie.overview}</p>
       </div>
-      <Link to="/main" className="film--page_button">
+      <Link to="/" className="film--page_button">
         Go back
       </Link>
     </div>

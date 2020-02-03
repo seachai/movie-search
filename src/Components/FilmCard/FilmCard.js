@@ -8,16 +8,15 @@ const FilmCard = ({ title, poster, id, rating }) => {
       <div className="film-rating">
         <span>{rating}</span>
       </div>
-      <img
-        src={`https://image.tmdb.org/t/p/original${poster}`}
-        loading="lazy"
-        alt={title}
-      />
+      <Link to={`film-details/${id}`} className="ticket-button">
+        <img
+          src={`https://image.tmdb.org/t/p/original${poster}`}
+          loading="lazy"
+          alt={title}
+        />
+      </Link>
       <div className="film-details">
         <h1>{title}</h1>
-        {/* <Link to={`film-details/${id}`} className="ticket-button">
-          View More
-        </Link> */}
       </div>
     </div>
   );

@@ -1,4 +1,10 @@
 .homepage {
-  padding: 4rem 8rem;
-  background-color: #f7f7f7;
+  padding: 0 2rem;
+  background-color: #fbfbfb;
+  margin-left: 25rem;
+}
+
+.homepage-title {
+  font-size: 5rem;
+  color: #333;
 }
