@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./FilmPage.css";
+import "./FilmPage.scss";
 
-const FilmPage = (id) => {
+const FilmPage = id => {
   const [movie, setMovie] = useState("");
   let movieId = id.match.params.film;
 
-  let movieGenres = { ...movie };
-  console.log(movieGenres);
   useEffect(() => {
     try {
       fetchTMDB();
@@ -33,8 +31,8 @@ const FilmPage = (id) => {
   };
 
   return (
-    <div className="film--page">
-      <div className="film--page_title">
+    <div className="film-page">
+      <div className="film-page__title">
         <img
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           alt={movie.orignal_title}
@@ -44,25 +42,18 @@ const FilmPage = (id) => {
         </h1>
       </div>
 
-      <div className="film--page_subtitle">
+      <div className="fiml-page__subtitle">
         <p>
           {movie.vote_average} / 10 from {movie.vote_count} votes
         </p>
         <p>Runtime: {movie.runtime}</p>
-        {/* {movie.map((genre) => (
-          <p>{genre.name}</p>
-        ))} */}
 
         <p>Release Date: {movie.release_date} ()</p>
-        <p>
-          Homepage: <a href={movie.homepage}>{movie.orignal_title}</a>
-        </p>
       </div>
-      <div className="film--page_body">
-        <p>Director: {movie.Director}</p>
+      <div className="fiml-page__body">
         <p>Plot: {movie.overview}</p>
       </div>
-      <Link to="/" className="film--page_button">
+      <Link to="/" className="fiml-page__button">
         Go back
       </Link>
     </div>

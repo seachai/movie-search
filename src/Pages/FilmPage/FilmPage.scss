@@ -1,22 +1,22 @@
-.film--page {
-  color: #fff;
-  background-color: #000000;
-  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+.film-page {
+  color: #333;
   text-align: center;
   font-size: 1.6rem;
+
+  &__title {
+    img {
+      box-shadow: 0 3px 2px #777;
+      height: 500px;
+      border-radius: 5px;
+    }
+  }
 }
 
-.film--page_title img {
-  box-shadow: 0 3px 2px #777;
-  height: 500px;
-  border-radius: 5px;
-}
-
-.film--page_body {
+.film-page__body {
   padding: 2rem;
 }
 
-.film--page_button {
+.film-page__button {
   padding: 1.2rem 4rem;
   border: 1px solid #d90368;
   background-color: #d90368;
@@ -32,7 +32,7 @@
   transition: all 0.2s;
 }
 
-.film--page_button:hover {
+.film-page__button:hover {
   background-color: #fff;
   color: #d90368;
   border: 1px solid #d90368;

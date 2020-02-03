@@ -1,9 +1,9 @@
 import React from "react";
-import "./SideBar.css";
+import "./SideBar.scss";
 
 const SideBar = () => {
   return (
-    <div class="sidenav">
+    <div className="sidenav">
       <a href="#about">Trending</a>
       <a href="#services">New Releases</a>
       <a href="#clients">Favorites</a>
