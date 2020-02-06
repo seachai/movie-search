@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
@@ -16,4 +15,4 @@ const App = () => {
   );
 };
 
-export default connect(null)(App);
+export default App;

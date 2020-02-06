@@ -16,7 +16,6 @@ const FilmPage = id => {
   }, []);
 
   const fetchTMDB = async () => {
-    // https://api.themoviedb.org/3/trending/all/day
     const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
     const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
     const response = await axios({

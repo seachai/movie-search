@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./Search.css";
 
-import { connect } from "react-redux";
-import { findMovie } from "../../Redux/getMovies";
-
 const Search = () => {
   const [value, setValue] = useState("");
 
@@ -11,16 +8,17 @@ const Search = () => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    findMovie(value);
-    setValue("");
-    console.log(findMovie);
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   findMovie(value);
+  //   setValue("");
+  //   console.log(findMovie);
+  // };
 
   return (
     <div className="search__container">
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}> */}
+      <form>
         <p className="search__title">Go ahead, find that perfect movie.</p>
         <input
           className="search__input"
@@ -34,4 +32,4 @@ const Search = () => {
   );
 };
 
-export default connect(null, { findMovie })(Search);
+export default Search;
