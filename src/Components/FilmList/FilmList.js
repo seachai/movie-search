@@ -7,12 +7,14 @@ import Loading from "../Loading/Loading";
 import "./FilmList.css";
 
 const FilmList = () => {
-  const { movieList } = useSelector(state => ({ movieList: state.movieList }));
+  const { movieList } = useSelector((state) => ({
+    movieList: state.movieList
+  }));
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
-
-  console.log(movieList);
+  useEffect(() => {
+    dispatch(actions.movieActions.getMovies);
+  }, []);
   return (
     <div className="film-container">
       {/* {movies ? (
