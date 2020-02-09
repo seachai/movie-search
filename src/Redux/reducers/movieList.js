@@ -5,7 +5,7 @@ const initialState = {
 
 const MOVIE = "MOVIE";
 
-//Reducers
+// Reducers
 const movieList = (state = initialState, action) => {
   switch (action.type) {
     case MOVIE: {
