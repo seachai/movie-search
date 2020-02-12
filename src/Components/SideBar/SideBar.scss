@@ -1,18 +1,43 @@
 .navigation-bar {
-  height: 100%;
-  width: 25rem;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #2e2e34;
+  width: 23rem;
+  background-color: rgb(4, 3, 6);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
   overflow-x: hidden;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  position: fixed;
+
+  &__logo {
+    margin-top: 5rem;
+    text-align: center;
+    span {
+      font-size: 9rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all ease 0.2s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
 
   &__link {
     cursor: pointer;
     padding: 2rem 0.8rem 2rem 1.6rem;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #fff;
     list-style-type: square;
@@ -21,6 +46,21 @@
     &:hover {
       color: #fc4d55;
       background-color: #fff;
+    }
+  }
+
+  &__github {
+    cursor: pointer;
+    margin-bottom: 5rem;
+    svg {
+      fill: #fff;
+      opacity: 0.5;
+      width: 4.5rem;
+      height: 4.5rem;
+      transition: all ease 0.2s;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
