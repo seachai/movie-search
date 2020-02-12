@@ -1,10 +1,12 @@
 import axios from "axios";
 
 const LOADED = "LOADED";
+const LOADING = "LOADING";
+const ERROR = "ERROR";
 
 // Action Creators
-const fetchMoviesFromValue = value => async dispatch => {
-  dispatch({ type: "LOADING" }); // 1st dispatch
+const fetchMoviesFromValue = (value) => async (dispatch) => {
+  dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `https://api.themoviedb.org/3/search/movie`;
   const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
@@ -16,10 +18,10 @@ const fetchMoviesFromValue = value => async dispatch => {
       api_key: apiKey,
       query: value
     }
-  }).catch(error => {
+  }).catch((error) => {
     // 2nd dispatch if error caught
     dispatch({
-      type: "ERROR",
+      type: ERROR,
       payload: error
     });
   });
@@ -31,8 +33,8 @@ const fetchMoviesFromValue = value => async dispatch => {
   });
 };
 
-const fetchMoviesOnLoad = () => async dispatch => {
-  dispatch({ type: "LOADING" }); // 1st dispatch
+const fetchMoviesOnLoad = () => async (dispatch) => {
+  dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `https://api.themoviedb.org/3/movie/now_playing`;
   const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
@@ -44,10 +46,10 @@ const fetchMoviesOnLoad = () => async dispatch => {
       api_key: apiKey,
       language: "en-US"
     }
-  }).catch(error => {
+  }).catch((error) => {
     // 2nd dispatch if error caught
     dispatch({
-      type: "ERROR",
+      type: ERROR,
       payload: error
     });
   });

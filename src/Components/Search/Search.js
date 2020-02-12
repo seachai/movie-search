@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import actions from "../../Redux/actions";
 
 import "./Search.css";
 
 const Search = () => {
-  // const dispatch = useDispatch(getMovies());
   const [value, setValue] = useState("");
-  const [movies, setMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {}, []);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -15,23 +17,9 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    test();
+    setSearchQuery(value);
+    dispatch(actions.movieActions.fetchMoviesFromValue(searchQuery));
     setValue("");
-  };
-
-  const test = async () => {
-    const apiUrl = `https://api.themoviedb.org/3/search/movie`;
-    const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
-    const response = await axios({
-      url: apiUrl,
-      method: "GET",
-      responseType: "json",
-      params: {
-        api_key: apiKey,
-        query: value
-      }
-    });
-    setMovies(response.data.results);
   };
 
   return (
