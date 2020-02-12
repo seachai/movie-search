@@ -1,21 +1,7 @@
-// .homepage {
-//   padding: 0 1rem;
-//   background-color: #fbfbfb;
-//   margin-left: 25rem;
-
-//   &__title {
-//     font-size: 6rem;
-//     font-weight: 700;
-//     letter-spacing: 0.3rem;
-//     color: #333;
-//     margin-left: 2rem;
-//     display: inline-block;
-//   }
-// }
-
 .homepage {
   padding: 0 1rem;
   background-color: #fbfbfb;
+  margin-left: 25rem;
 
   &__title {
     font-size: 6rem;
@@ -26,3 +12,17 @@
     display: inline-block;
   }
 }
+
+// .homepage {
+//   padding: 0 1rem;
+//   background-color: #fbfbfb;
+
+//   &__title {
+//     font-size: 6rem;
+//     font-weight: 700;
+//     letter-spacing: 0.3rem;
+//     color: #333;
+//     margin-left: 2rem;
+//     display: inline-block;
+//   }
+// }

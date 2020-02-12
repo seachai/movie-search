@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DefaultMoviePoster from "../../Images/404.webp";
 import "./FilmCard.scss";
 
 const FilmCard = ({ title, poster, id, rating }) => {
@@ -11,7 +12,11 @@ const FilmCard = ({ title, poster, id, rating }) => {
       <Link to={`film-details/${id}`}>
         <img
           className="film-card__poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
+          src={
+            poster !== null
+              ? `https://image.tmdb.org/t/p/original${poster}`
+              : `${DefaultMoviePoster}`
+          }
           loading="lazy"
           alt={title}
         />

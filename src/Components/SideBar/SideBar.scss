@@ -1,4 +1,4 @@
-.sidenav {
+.navigation-bar {
   height: 100%;
   width: 25rem;
   position: fixed;
@@ -7,20 +7,20 @@
   left: 0;
   background-color: #2e2e34;
   overflow-x: hidden;
-  padding-top: 1rem;
 
-  a {
+  &__link {
+    cursor: pointer;
     padding: 2rem 0.8rem 2rem 1.6rem;
     text-decoration: none;
     font-size: 2.5rem;
     font-weight: 600;
     color: #fff;
-    display: block;
+    list-style-type: square;
     transition: all ease 0.2s;
-  }
 
-  a:hover {
-    color: #fc4d55;
-    background-color: #fff;
+    &:hover {
+      color: #fc4d55;
+      background-color: #fff;
+    }
   }
 }

@@ -1,35 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import actions from "../../Redux/actions";
 
-import "./Search.css";
+import "./Search.scss";
 
 const Search = () => {
   const [value, setValue] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
-
-  const handleChange = (e) => {
+  const handleChange = e => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    setSearchQuery(value);
-    dispatch(actions.movieActions.fetchMoviesFromValue(searchQuery));
+    dispatch(actions.movieActions.fetchMoviesFromValue(value));
     setValue("");
   };
 
   return (
     <div className="search__container">
       <form onSubmit={handleSubmit}>
-        <p className="search__title">Go ahead, find that perfect movie.</p>
         <input
-          className="search__input"
           type="text"
-          placeholder="Search"
+          className="search__input"
+          placeholder="Go ahead, find that perfect movie"
           value={value}
           onChange={handleChange}
         />

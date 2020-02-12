@@ -8,11 +8,11 @@ import "./FilmList.css";
 
 const FilmList = () => {
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movieReducer.results);
+  const movies = useSelector(state => state.movieReducer.results);
 
   useEffect(() => {
     try {
-      dispatch(actions.movieActions.fetchMoviesOnLoad());
+      dispatch(actions.movieActions.fetchNowPlayingMovies());
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +21,7 @@ const FilmList = () => {
   return (
     <div className="film-container">
       {movies ? (
-        movies.map((data) => (
+        movies.map(data => (
           <FilmCard
             title={data.title ? data.title : data.original_name}
             poster={data.poster_path}

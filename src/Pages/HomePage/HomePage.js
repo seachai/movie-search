@@ -11,7 +11,7 @@ const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 const HomePage = () => {
   return (
     <Suspense fallback={<Loading />}>
-      {/* <SideBar /> */}
+      <SideBar />
       <section className="homepage">
         <Search />
         <h1 className="homepage__title">Now Playing</h1>
