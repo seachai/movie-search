@@ -2,7 +2,8 @@ const initialState = {
   loading: false,
   loaded: false,
   results: [],
-  error: null
+  error: null,
+  history: ""
 };
 
 const LOADING = "LOADING";
