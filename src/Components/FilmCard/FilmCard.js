@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DefaultMoviePoster from "../../Images/404.webp";
+import DefaultMoviePoster from "../../Images/poster.png";
 import "./FilmCard.scss";
 
 const FilmCard = ({ title, poster, id, rating }) => {
