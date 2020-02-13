@@ -14,7 +14,6 @@ const HomePage = () => {
       <SideBar />
       <section className="homepage">
         <Search />
-        <h1 className="homepage__title">Now Playing...</h1>
         <FilmList />
       </section>
     </Suspense>

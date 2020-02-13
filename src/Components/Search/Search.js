@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import actions from "../../Redux/actions";
+import { useHistory } from "react-router-dom";
 
 import "./Search.scss";
 
 const Search = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = e => {
     setValue(e.target.value);
@@ -14,8 +16,9 @@ const Search = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(actions.movieActions.fetchMoviesFromValue(value));
+    dispatch(actions.movieActions.fetchMoviesFromValue(value.trim()));
     setValue("");
+    history.push(`/search/${value}`);
   };
 
   return (

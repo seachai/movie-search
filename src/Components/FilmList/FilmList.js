@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import actions from "../../Redux/actions";
 
 import FilmCard from "../FilmCard/FilmCard";
+import FilmListTitle from "../FilmListTitle/FilmListTitle";
 import Loading from "../Loading/Loading";
 import "./FilmList.css";
 
@@ -19,21 +20,24 @@ const FilmList = () => {
   }, []);
 
   return (
-    <div className="film-container">
-      {movies ? (
-        movies.map(data => (
-          <FilmCard
-            title={data.title ? data.title : data.original_name}
-            poster={data.poster_path}
-            key={data.id}
-            id={data.id}
-            rating={data.vote_average}
-          />
-        ))
-      ) : (
-        <Loading />
-      )}
-    </div>
+    <>
+      <FilmListTitle title={"Now Playing..."} />
+      <div className="film-container">
+        {movies ? (
+          movies.map(data => (
+            <FilmCard
+              title={data.title ? data.title : data.original_name}
+              poster={data.poster_path}
+              key={data.id}
+              id={data.id}
+              rating={data.vote_average}
+            />
+          ))
+        ) : (
+          <Loading />
+        )}
+      </div>
+    </>
   );
 };
 

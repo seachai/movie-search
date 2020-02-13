@@ -1,39 +1,46 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actions from "../../Redux/actions";
 import "./SideBar.scss";
 
 const SideBar = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handlePreviousLocation = () => {
+    return history.length !== 0 ? history.goBack() : null;
+  };
 
   return (
     <nav className="navigation-bar">
       <div className="navigation-bar__logo">
-        <Link to="/">
-          <span role="img" aria-label="Popcorn Logo">
-            🍿
-          </span>
-        </Link>
+        <span
+          role="img"
+          aria-label="Popcorn Logo"
+          onClick={handlePreviousLocation}
+        >
+          🍿
+        </span>
       </div>
       <ul>
         <li
           className="navigation-bar__link"
           onClick={() => dispatch(actions.movieActions.fetchNowPlayingMovies())}
         >
-          <Link to="/">Now Playing</Link>
+          <Link to="/now-playing">Now Playing</Link>
         </li>
         <li
           className="navigation-bar__link"
           onClick={() => dispatch(actions.movieActions.fetchUpcomingMovies())}
         >
-          <Link to="/">Upcoming</Link>
+          <Link to="/upcoming">Upcoming</Link>
         </li>
         <li
           className="navigation-bar__link"
           onClick={() => dispatch(actions.movieActions.fetchTrendingMovies())}
         >
-          <Link to="/">Trending</Link>
+          <Link to="/trending">Trending</Link>
         </li>
         <li className="navigation-bar__link">Favorites</li>
         <li className="navigation-bar__link">Watch Later</li>
