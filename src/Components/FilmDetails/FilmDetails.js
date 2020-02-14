@@ -1,8 +1,12 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const FilmDetails = ({ movie }) => {
   const history = useHistory();
+
+  const handlePreviousLocation = () => {
+    return history.length !== 0 ? history.goBack() : null;
+  };
   return (
     <div className="film-page">
       <div className="film-page__container">
@@ -26,7 +30,10 @@ const FilmDetails = ({ movie }) => {
         <div className="fiml-page__body">
           <p>Plot: {movie.overview}</p>
         </div>
-        <button to={() => history.goBack()} className="fiml-page__button">
+        <button
+          onClick={() => handlePreviousLocation}
+          className="fiml-page__button"
+        >
           Go back
         </button>
       </div>

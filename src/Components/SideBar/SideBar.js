@@ -1,27 +1,20 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actions from "../../Redux/actions";
 import "./SideBar.scss";
 
 const SideBar = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const handlePreviousLocation = () => {
-    return history.length !== 0 ? history.goBack() : null;
-  };
 
   return (
     <nav className="navigation-bar">
       <div className="navigation-bar__logo">
-        <span
-          role="img"
-          aria-label="Popcorn Logo"
-          onClick={handlePreviousLocation}
-        >
-          🍿
-        </span>
+        <Link to="/">
+          <span role="img" aria-label="Popcorn Logo">
+            🍿
+          </span>
+        </Link>
       </div>
       <ul>
         <li

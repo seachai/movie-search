@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DefaultMoviePoster from "../../Images/poster.png";
 import "./FilmCard.scss";
 
+// From FilmList
 const FilmCard = ({ title, poster, id, rating }) => {
   return (
     <div className="film-card">

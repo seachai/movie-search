@@ -8,6 +8,8 @@ import "./HomePage.scss";
 
 const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
+// Add a slow transition to FilmList component
+
 const HomePage = () => {
   return (
     <Suspense fallback={<Loading />}>

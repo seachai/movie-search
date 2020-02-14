@@ -7,9 +7,10 @@ import FilmListTitle from "../FilmListTitle/FilmListTitle";
 import Loading from "../Loading/Loading";
 import "./FilmList.css";
 
+// From HomePage
 const FilmList = () => {
   const dispatch = useDispatch();
-  const movies = useSelector(state => state.movieReducer.results);
+  const movies = useSelector((state) => state.movieReducer.results);
 
   useEffect(() => {
     try {
@@ -24,7 +25,7 @@ const FilmList = () => {
       <FilmListTitle title={"Now Playing..."} />
       <div className="film-container">
         {movies ? (
-          movies.map(data => (
+          movies.map((data) => (
             <FilmCard
               title={data.title ? data.title : data.original_name}
               poster={data.poster_path}

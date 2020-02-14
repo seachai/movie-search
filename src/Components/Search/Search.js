@@ -10,11 +10,11 @@ const Search = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(actions.movieActions.fetchMoviesFromValue(value.trim()));
     setValue("");
