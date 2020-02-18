@@ -43,7 +43,16 @@
     list-style-type: square;
     transition: all ease 0.2s;
 
+    a {
+      text-decoration: none;
+      color: #fff;
+      display: block;
+    }
+
     &:hover {
+      a {
+        color: #fc4d55;
+      }
       color: #fc4d55;
       background-color: #fff;
     }
