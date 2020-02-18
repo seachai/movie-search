@@ -8,16 +8,16 @@ import "./FilmList.css";
 
 // From HomePage
 const FilmList = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const movies = useSelector((state) => state.movieReducer.results);
 
-  useEffect(() => {
-    try {
-      dispatch(actions.movieActions.fetchNowPlayingMovies());
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     dispatch(actions.movieActions.fetchNowPlayingMovies());
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   return (
     <div className="film-container">

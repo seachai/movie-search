@@ -1,17 +1,14 @@
 import React from "react";
+import "./FilmDetails.scss";
 
 const FilmDetails = ({ movie }) => {
+  const imageUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
   return (
     <div className="film-page">
       <div className="film-page__container">
         <div className="film-page__title">
-          <img
-            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-            alt={movie.orignal_title}
-          />
-          <h1>
-            {movie.original_title} ( {movie.release_date} )
-          </h1>
+          <img src={imageUrl} alt={movie.title} />
+          <h1>{movie.title}</h1>
         </div>
         <div className="fiml-page__subtitle">
           <p>
@@ -24,7 +21,6 @@ const FilmDetails = ({ movie }) => {
         <div className="fiml-page__body">
           <p>Plot: {movie.overview}</p>
         </div>
-        <button className="fiml-page__button">Go back</button>
       </div>
     </div>
   );

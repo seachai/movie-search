@@ -33,7 +33,7 @@ const App = () => {
         label={"Trending Movies"}
         component={HomePage}
       />
-      <Route exact path={search} component={HomePage} />
+      {/* <Route exact path={search} component={HomePage} /> */}
       <Route exact path={filmDetails} component={FilmPage} />
       <Route component={HomePage} />
     </Switch>

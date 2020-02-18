@@ -8,11 +8,9 @@ const FilmDetails = lazy(() =>
   import("../../Components/FilmDetails/FilmDetails")
 );
 
-const FilmPage = (id) => {
+const FilmPage = (props) => {
   const [movie, setMovie] = useState("");
-  let movieId = id.match.params.film;
-  console.log(movieId);
-  console.log(id);
+  let movieId = props.match.params.id;
 
   useEffect(() => {
     try {
