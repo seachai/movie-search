@@ -6,18 +6,22 @@ import Loading from "../../Components/Loading/Loading";
 
 import "./HomePage.scss";
 import FilmListTitle from "../../Components/FilmListTitle/FilmListTitle";
+import { setTitle } from "./setTitle";
 
 const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
 // Add a slow transition to FilmList component
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const currentLocation = props.history.location.pathname;
+
   return (
     <Suspense fallback={<Loading />}>
       <NavigationBar />
       <section className="homepage">
+        <button>Next</button>
         <Search />
-        <FilmListTitle title={"Hello World"} />
+        <FilmListTitle title={setTitle(currentLocation)} />
         <FilmList />
       </section>
     </Suspense>
