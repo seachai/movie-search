@@ -56,6 +56,29 @@
       color: #fc4d55;
       background-color: #fff;
     }
+
+    &--selected {
+      cursor: pointer;
+      padding: 2rem 0.8rem 2rem 1.6rem;
+      text-decoration: none;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fc4d55;
+      list-style-type: square;
+      transition: all ease 0.2s;
+      a {
+        text-decoration: none;
+        color: #fc4d55;
+        display: block;
+      }
+      &:hover {
+        a {
+          color: #fc4d55;
+        }
+        color: #fc4d55;
+        background-color: #fff;
+      }
+    }
   }
 
   &__github {

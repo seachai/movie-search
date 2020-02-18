@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import actions from "../../Redux/actions";
-import "./SideBar.scss";
+import "./NavigationBar.scss";
+import NavigationList from "./NavigationList";
 
-const SideBar = () => {
-  const dispatch = useDispatch();
-
+const NavigationBar = () => {
   return (
-    <nav className="navigation-bar">
+    <aside className="navigation-bar">
       <div className="navigation-bar__logo">
         <Link to="/">
           <span role="img" aria-label="Popcorn Logo">
@@ -16,28 +13,7 @@ const SideBar = () => {
           </span>
         </Link>
       </div>
-      <ul>
-        <li
-          className="navigation-bar__link"
-          onClick={() => dispatch(actions.movieActions.fetchNowPlayingMovies())}
-        >
-          <Link to="/now-playing">Now Playing</Link>
-        </li>
-        <li
-          className="navigation-bar__link"
-          onClick={() => dispatch(actions.movieActions.fetchUpcomingMovies())}
-        >
-          <Link to="/upcoming">Upcoming</Link>
-        </li>
-        <li
-          className="navigation-bar__link"
-          onClick={() => dispatch(actions.movieActions.fetchTrendingMovies())}
-        >
-          <Link to="/trending">Trending</Link>
-        </li>
-        <li className="navigation-bar__link">Favorites</li>
-        <li className="navigation-bar__link">Watch Later</li>
-      </ul>
+      <NavigationList />
       <div className="navigation-bar__github">
         <a
           href="https://github.com/seachai/movie-search"
@@ -54,8 +30,8 @@ const SideBar = () => {
           </svg>
         </a>
       </div>
-    </nav>
+    </aside>
   );
 };
 
-export default SideBar;
+export default NavigationBar;

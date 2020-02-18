@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
-import SideBar from "../../Components/SideBar/SideBar";
+import NavigationBar from "../../Components/NavigationBar/NavigationBar";
 import Loading from "../../Components/Loading/Loading";
 import "./FilmPage.scss";
 
@@ -38,7 +38,7 @@ const FilmPage = (id) => {
 
   return (
     <>
-      <SideBar />
+      <NavigationBar />
       <Suspense fallback={<Loading />}>
         <FilmDetails movie={movie} />
       </Suspense>
