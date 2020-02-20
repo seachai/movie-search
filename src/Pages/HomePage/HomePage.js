@@ -12,7 +12,7 @@ const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
 
 // Add a slow transition to FilmList component
 
-const HomePage = (props) => {
+const HomePage = props => {
   const currentLocation = props.history.location.pathname;
 
   return (

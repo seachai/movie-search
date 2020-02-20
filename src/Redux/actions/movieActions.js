@@ -5,10 +5,10 @@ const LOADING = "LOADING";
 const ERROR = "ERROR";
 
 // Action Creators
-const fetchMoviesFromValue = (value) => async (dispatch) => {
+const fetchMoviesFromValue = value => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
   const apiUrl = `https://api.themoviedb.org/3/search/movie`;
-  const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
+  const apiKey = process.env.REACT_APP_TMDB_API;
   const response = await axios({
     url: apiUrl,
     method: "GET",
@@ -18,7 +18,7 @@ const fetchMoviesFromValue = (value) => async (dispatch) => {
       language: "en-US",
       query: value
     }
-  }).catch((error) => {
+  }).catch(error => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
@@ -33,11 +33,11 @@ const fetchMoviesFromValue = (value) => async (dispatch) => {
   });
 };
 
-const fetchNowPlayingMovies = () => async (dispatch) => {
+const fetchNowPlayingMovies = () => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `https://api.themoviedb.org/3/movie/now_playing`;
-  const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
+  const apiKey = process.env.REACT_APP_TMDB_API;
   const response = await axios({
     url: apiUrl,
     method: "GET",
@@ -46,7 +46,7 @@ const fetchNowPlayingMovies = () => async (dispatch) => {
       api_key: apiKey,
       language: "en-US"
     }
-  }).catch((error) => {
+  }).catch(error => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
@@ -61,11 +61,11 @@ const fetchNowPlayingMovies = () => async (dispatch) => {
   });
 };
 
-const fetchUpcomingMovies = () => async (dispatch) => {
+const fetchUpcomingMovies = () => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `https://api.themoviedb.org/3/movie/upcoming`;
-  const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
+  const apiKey = process.env.REACT_APP_TMDB_API;
   const response = await axios({
     url: apiUrl,
     method: "GET",
@@ -74,7 +74,7 @@ const fetchUpcomingMovies = () => async (dispatch) => {
       api_key: apiKey,
       language: "en-US"
     }
-  }).catch((error) => {
+  }).catch(error => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
@@ -89,11 +89,11 @@ const fetchUpcomingMovies = () => async (dispatch) => {
   });
 };
 
-const fetchTrendingMovies = () => async (dispatch) => {
+const fetchTrendingMovies = () => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `https://api.themoviedb.org/3/trending/all/week`;
-  const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
+  const apiKey = process.env.REACT_APP_TMDB_API;
   const response = await axios({
     url: apiUrl,
     method: "GET",
@@ -102,7 +102,7 @@ const fetchTrendingMovies = () => async (dispatch) => {
       api_key: apiKey,
       language: "en-US"
     }
-  }).catch((error) => {
+  }).catch(error => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
