@@ -6,7 +6,6 @@ import store from "./Redux/store";
 import App from "./App";
 
 require("dotenv").config();
-console.log(process.env);
 
 ReactDOM.render(
   <Provider store={store}>

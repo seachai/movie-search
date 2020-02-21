@@ -4,11 +4,9 @@ import NavigationBar from "../../Components/NavigationBar/NavigationBar";
 import Loading from "../../Components/Loading/Loading";
 import "./FilmPage.scss";
 
-const FilmDetails = lazy(() =>
-  import("../../Components/FilmDetails/FilmDetails")
-);
+const FilmDetails = lazy(() => import("./FilmDetails"));
 
-const FilmPage = (props) => {
+const FilmPage = props => {
   const [movie, setMovie] = useState("");
   let movieId = props.match.params.id;
 
@@ -22,7 +20,7 @@ const FilmPage = (props) => {
 
   const fetchTMDB = async () => {
     const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
-    const apiKey = "ec7cf9725335473ff9bc286b6f5045a5";
+    const apiKey = process.env.REACT_APP_TMDB_API;
     const response = await axios({
       url: apiUrl,
       method: "GET",

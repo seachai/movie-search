@@ -1,18 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DefaultMoviePoster from "../../Images/poster.png";
-import "./FilmCard.scss";
+import "./FilmListCard.scss";
 
-// From FilmList
-const FilmCard = ({ title, poster, id, rating }) => {
+const FilmListCard = ({ title, poster, id, rating }) => {
   return (
-    <div className="film-card">
-      <div className="film-card__rating">
+    <div className="film-list-card">
+      <div className="film-list-card__rating">
         <span>{rating}</span>
       </div>
       <Link to={`film-details/${id}`}>
         <img
-          className="film-card__poster"
+          className="film-list-card__poster"
           src={
             poster !== null
               ? `https://image.tmdb.org/t/p/original${poster}`
@@ -22,11 +21,11 @@ const FilmCard = ({ title, poster, id, rating }) => {
           alt={title}
         />
       </Link>
-      <div className="film-card__details">
+      <div className="film-list-card__details">
         <h1>{title}</h1>
       </div>
     </div>
   );
 };
 
-export default FilmCard;
+export default FilmListCard;

@@ -5,7 +5,7 @@ import Search from "../../Components/Search/Search";
 import Loading from "../../Components/Loading/Loading";
 
 import "./HomePage.scss";
-import FilmListTitle from "../../Components/FilmListTitle/FilmListTitle";
+import PageTitle from "./PageTitle";
 import { setTitle } from "./setTitle";
 
 const FilmList = lazy(() => import("../../Components/FilmList/FilmList"));
@@ -19,9 +19,8 @@ const HomePage = props => {
     <Suspense fallback={<Loading />}>
       <NavigationBar />
       <section className="homepage">
-        <button>Next</button>
         <Search />
-        <FilmListTitle title={setTitle(currentLocation)} />
+        <PageTitle title={setTitle(currentLocation)} />
         <FilmList />
       </section>
     </Suspense>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NavigationBar.scss";
 import NavigationList from "./NavigationList";
+import "./NavigationBar.scss";
 
 const NavigationBar = () => {
   return (

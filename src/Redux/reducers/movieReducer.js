@@ -3,7 +3,8 @@ const initialState = {
   loaded: false,
   results: [],
   error: null,
-  page: 1
+  currentPage: 0,
+  totalPages: 0
 };
 
 const LOADING = "LOADING";
@@ -20,13 +21,14 @@ const movieReducer = (state = initialState, action) => {
       };
     }
     case LOADED: {
-      const { results, page } = action.payload;
+      const { results, page, total_pages } = action.payload;
       return {
         ...state,
         loaded: true,
         loading: false,
         results,
-        page
+        currentPage: page,
+        totalPages: total_pages
       };
     }
     case ERROR: {

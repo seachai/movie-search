@@ -4,7 +4,7 @@ import actions from "../../Redux/actions";
 import { isSelected } from "./isSelected";
 import NavigationListItem from "./NavigationListItem";
 
-const PathLinks = {
+const pathLinks = {
   nowPlaying: "/now-playing",
   upcoming: "/upcoming",
   trending: "/trending"
@@ -13,27 +13,32 @@ const PathLinks = {
 const NavigationList = () => {
   const dispatch = useDispatch();
   const pathName = window.location.pathname;
+  const { nowPlaying, upcoming, trending } = pathLinks;
+  const { fetchMovies } = actions.movieActions;
+  const nowPlayingMovies = "/movie/now_playing";
+  const upcomingMovies = "/movie/upcoming";
+  const trendingMovies = "/trending/all/week";
 
   return (
     <nav>
       <ul>
         <NavigationListItem
-          path={PathLinks.nowPlaying}
+          path={nowPlaying}
           label={"Now Playing"}
-          dispatch={dispatch(actions.movieActions.fetchNowPlayingMovies())}
-          isSelected={isSelected(pathName, PathLinks.nowPlaying)}
+          dispatch={dispatch(fetchMovies(nowPlayingMovies))}
+          isSelected={isSelected(pathName, nowPlaying)}
         />
         <NavigationListItem
-          path={PathLinks.upcoming}
+          path={upcoming}
           label={"Upcoming"}
-          dispatch={dispatch(actions.movieActions.fetchUpcomingMovies())}
-          isSelected={isSelected(pathName, PathLinks.upcoming)}
+          dispatch={dispatch(fetchMovies(upcomingMovies))}
+          isSelected={isSelected(pathName, upcoming)}
         />
         <NavigationListItem
-          path={PathLinks.trending}
+          path={trending}
           label={"Trending"}
-          dispatch={dispatch(actions.movieActions.fetchTrendingMovies())}
-          isSelected={isSelected(pathName, PathLinks.trending)}
+          dispatch={dispatch(fetchMovies(trendingMovies))}
+          isSelected={isSelected(pathName, trending)}
         />
       </ul>
     </nav>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./FilmDetails.scss";
 
+// From FilmPage
 const FilmDetails = ({ movie }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
   return (
