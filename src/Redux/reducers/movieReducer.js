@@ -4,12 +4,15 @@ const initialState = {
   results: [],
   error: null,
   currentPage: 0,
-  totalPages: 0
+  totalPages: 0,
+  userLoggedIn: false,
+  userEmail: ""
 };
 
 const LOADING = "LOADING";
 const LOADED = "LOADED";
 const ERROR = "ERROR";
+const LOGGED_IN = "LOGGED_IN";
 
 // Reducers
 const movieReducer = (state = initialState, action) => {
@@ -37,6 +40,13 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error
+      };
+    }
+    case LOGGED_IN: {
+      return {
+        ...state,
+        userLoggedIn: true,
+        userEmail: action.payload
       };
     }
     default:

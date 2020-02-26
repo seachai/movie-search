@@ -5,6 +5,7 @@ const LOADING = "LOADING";
 const ERROR = "ERROR";
 
 // Action Creators
+
 const fetchMoviesFromValue = value => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
   const apiUrl = `${process.env.REACT_APP_TMDB_URL}/search/movie`;
@@ -35,13 +36,10 @@ const fetchMoviesFromValue = value => async dispatch => {
 
 //TODO: combine action creators into one
 
-const fetchMovies = (url, value) => async dispatch => {
+const fetchMovies = url => async dispatch => {
   dispatch({ type: LOADING }); // 1st dispatch
 
-  const apiUrl = value
-    ? `${process.env.REACT_APP_TMDB_URL}${url}${value.trim()}`
-    : `${process.env.REACT_APP_TMDB_URL}${url}`;
-
+  const apiUrl = `${process.env.REACT_APP_TMDB_URL}${url}`;
   const apiKey = process.env.REACT_APP_TMDB_API;
 
   const response = await axios({
@@ -50,8 +48,7 @@ const fetchMovies = (url, value) => async dispatch => {
     responseType: "json",
     params: {
       api_key: apiKey,
-      language: "en-US",
-      query: value
+      language: "en-US"
     }
   }).catch(error => {
     // 2nd dispatch if error caught
@@ -69,6 +66,6 @@ const fetchMovies = (url, value) => async dispatch => {
 };
 
 export default {
-  fetchMoviesFromValue,
-  fetchMovies
+  fetchMovies,
+  fetchMoviesFromValue
 };

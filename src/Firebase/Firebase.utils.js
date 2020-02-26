@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
 import "firebase/auth";
+import firestore from "firebase/firebase-firestore";
 
 if (!firebase.apps.length) {
   const firebaseConfig = {
@@ -42,6 +42,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 };
 
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+export const provider = new firebase.auth.GoogleAuthProvider();
 
 export default firebase;
