@@ -6,7 +6,7 @@ const ERROR = "ERROR";
 
 // Action Creators
 
-const fetchMoviesFromValue = value => async dispatch => {
+const fetchMoviesFromValue = (value) => async (dispatch) => {
   dispatch({ type: LOADING }); // 1st dispatch
   const apiUrl = `${process.env.REACT_APP_TMDB_URL}/search/movie`;
   const apiKey = process.env.REACT_APP_TMDB_API;
@@ -19,7 +19,7 @@ const fetchMoviesFromValue = value => async dispatch => {
       language: "en-US",
       query: value
     }
-  }).catch(error => {
+  }).catch((error) => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
@@ -36,7 +36,7 @@ const fetchMoviesFromValue = value => async dispatch => {
 
 //TODO: combine action creators into one
 
-const fetchMovies = url => async dispatch => {
+const fetchMovies = (url) => async (dispatch) => {
   dispatch({ type: LOADING }); // 1st dispatch
 
   const apiUrl = `${process.env.REACT_APP_TMDB_URL}${url}`;
@@ -50,7 +50,7 @@ const fetchMovies = url => async dispatch => {
       api_key: apiKey,
       language: "en-US"
     }
-  }).catch(error => {
+  }).catch((error) => {
     // 2nd dispatch if error caught
     dispatch({
       type: ERROR,
